@@ -1,0 +1,24 @@
+﻿  TorusEngine.cpp
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(13,49): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(12,43): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(27,47): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(27,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(126,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(148,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Circle Fun.vcxproj -> C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Debug\Circle Fun.exe
