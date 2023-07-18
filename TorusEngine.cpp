@@ -5,13 +5,13 @@
 const double pi = 3.14159265358979323846;
 
 TorusEngine::TorusEngine() :
-    TorusEngine(100)
+    TorusEngine(50)
 {}
 
 TorusEngine::TorusEngine(unsigned int numCircles) :
     dims { sf::VideoMode::getDesktopMode().width,
                  sf::VideoMode::getDesktopMode().height },
-    drawHUD(false),
+    drawHUD(true),
     numCircles(numCircles),
     circles(numCircles, dims.y * 0.025f, dims.y * 0.2f, dims),
     pullMouse(false),
@@ -75,6 +75,9 @@ void TorusEngine::input()
         if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::F) {
                 drawHUD = !drawHUD;
+            }
+            if (event.key.code == sf::Keyboard::P) {
+                //printPositions();
             }
         }
         if (event.type == sf::Event::MouseButtonPressed) {
@@ -237,3 +240,11 @@ void TorusEngine::wrapCircle(sf::CircleShape &c)
     c.setPosition(pos);
 }
 
+void TorusEngine::printPositions()
+{
+    for (int i = 0; i < numCircles; i++)
+    {
+        sf::Vector2f pos = circles.shapes[i].getPosition();
+        std::cout << "Circle " << i << " @ (" << pos.x << ", " << pos.y << ")" << std::endl;
+    }
+}

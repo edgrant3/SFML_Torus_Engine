@@ -164,7 +164,17 @@ void CircleSet::applyVelocity()
 {
 	for (int i = 0; i < shapes.size(); ++i)
 	{
-		shapes[i].setPosition(shapes[i].getPosition() + velocity[i]);
+		sf::Vector2f pos = shapes[i].getPosition();
+		if (isnan(pos.x) || isnan(pos.y))
+		{
+			pos = { 0.f, 0.f };
+		}
+		if (isnan(velocity[i].x) || isnan(velocity[i].y))
+		{
+			velocity[i] = { 0.f, 0.f };
+		}
+
+		shapes[i].setPosition(pos + velocity[i]);
 		velocity[i] = { 0.f, 0.f };
 	}
 }

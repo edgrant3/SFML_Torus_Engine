@@ -1,15 +1,30 @@
-﻿  CircleSet.cpp
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(48,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(69,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(71,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(81,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(108,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(128,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(151,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\CircleSet.cpp(165,20): warning C4018: '<': signed/unsigned mismatch
+﻿  TorusEngine.cpp
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(13,49): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(12,43): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(27,47): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(27,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(129,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(151,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(245,23): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  2 of 350 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+  4 of 352 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Circle Fun.vcxproj -> C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Release\Circle Fun.exe

@@ -34,6 +34,8 @@ private:
 	void magnetizeMouse(float dtSecs, float speed, bool pull);
 	void wrapCircle(sf::CircleShape &c);
 
+	void printPositions();
+
 public:
 	TorusEngine();
 	TorusEngine(unsigned int numCircles);
