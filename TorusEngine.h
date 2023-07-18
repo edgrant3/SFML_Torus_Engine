@@ -22,6 +22,7 @@ private:
 	CircleSet circles;
 	std::vector<sf::Vector2f> velocity;
 
+	bool pauseCircles;
 	bool  pullMouse;
 	bool  pushMouse;
 	float pushForce;
@@ -35,6 +36,7 @@ private:
 	void wrapCircle(sf::CircleShape &c);
 
 	void printPositions();
+	void regenerateCircles();
 
 public:
 	TorusEngine();

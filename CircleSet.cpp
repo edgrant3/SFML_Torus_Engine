@@ -20,8 +20,8 @@ const std::array<sf::Color, 7> GREY_PALETTE{ sf::Color(25,  25,  25), sf::Color(
 
 const std::array<sf::Color, 7> RAINBOW_PALETTE{ sf::Color(255,  0,  0), sf::Color(255,  127,  0),
 									   sf::Color(255,  255,  0), sf::Color(0, 255, 0),
-									   sf::Color(0, 127, 255), sf::Color(0, 0, 225),
-									   sf::Color(255, 0, 255) };
+									   sf::Color(0, 127, 127), sf::Color(0, 0, 225),
+									   sf::Color(180, 0, 255) };
 
 CircleSet::CircleSet(unsigned int numCircles, float minRad, float maxRad, const sf::Vector2f& dims) :
 	numCircles(numCircles),

@@ -9,11 +9,12 @@ TorusEngine::TorusEngine() :
 {}
 
 TorusEngine::TorusEngine(unsigned int numCircles) :
-    dims { sf::VideoMode::getDesktopMode().width,
+    dims{ sf::VideoMode::getDesktopMode().width,
                  sf::VideoMode::getDesktopMode().height },
     drawHUD(true),
     numCircles(numCircles),
     circles(numCircles, dims.y * 0.025f, dims.y * 0.2f, dims),
+    pauseCircles(false),
     pullMouse(false),
     pushMouse(false),
     pushForce(40000),
@@ -79,6 +80,26 @@ void TorusEngine::input()
             if (event.key.code == sf::Keyboard::P) {
                 //printPositions();
             }
+            if (event.key.code == sf::Keyboard::Space) {
+                pauseCircles = !pauseCircles;
+            }
+            if (event.key.code == sf::Keyboard::Up) {
+                numCircles += 50;
+                regenerateCircles();
+            }
+            if (event.key.code == sf::Keyboard::Down) {
+
+                numCircles = numCircles >= 50 ? numCircles - 50 : 0;
+                regenerateCircles();
+            }
+            if (event.key.code == sf::Keyboard::Right) {
+                numCircles += 1;
+                regenerateCircles();
+            }
+            if (event.key.code == sf::Keyboard::Left) {
+                numCircles = numCircles >= 1 ? numCircles - 1 : 0;
+                regenerateCircles();
+            }
         }
         if (event.type == sf::Event::MouseButtonPressed) {
             if (event.mouseButton.button == sf::Mouse::Left) {
@@ -102,7 +123,11 @@ void TorusEngine::update(float dtSecs, float tSecs)
     if (pullMouse) { magnetizeMouse(dtSecs, speed, true);  }
     if (pushMouse) { magnetizeMouse(dtSecs, speed, false); }
 
-    circles.periodicMovement(dtSecs, tSecs, speed);
+    if (!pauseCircles)
+    {
+        circles.periodicMovement(dtSecs, tSecs, speed);
+    }
+    
     circles.applyVelocity();
 }
 
@@ -247,4 +272,9 @@ void TorusEngine::printPositions()
         sf::Vector2f pos = circles.shapes[i].getPosition();
         std::cout << "Circle " << i << " @ (" << pos.x << ", " << pos.y << ")" << std::endl;
     }
+}
+
+void TorusEngine::regenerateCircles()
+{
+    circles = CircleSet(numCircles, dims.y * 0.025f, dims.y * 0.2f, dims);
 }
