@@ -18,7 +18,7 @@ private:
 	std::vector<sf::CircleShape> shapes;
 	void createCircles();
 
-	std::array<std::vector<sf::Color>, 4> palettes;
+	std::array<std::vector<sf::Color>, 5> palettes;
 	void createPalettes();
 	void updateColors();
 
@@ -28,11 +28,12 @@ private:
 	void generatePeriods(float maxTimeSecs);
 	
 public:
-	CircleSet(unsigned int numCircles, float minRad, float maxRad, const sf::Vector2f& dims);
+	CircleSet(unsigned int numCircles, float minRad, float maxRad, const sf::Vector2f& dims, uint8_t paletteToggle);
 
 	void periodicMovement(float dtSecs, float tSecs, float speed);
 	void applyVelocity();
 	void togglePalette();
+	void centerCircles();
 
 	friend class TorusEngine;
 };

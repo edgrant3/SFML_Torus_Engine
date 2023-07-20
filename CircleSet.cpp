@@ -23,10 +23,19 @@ const std::array<sf::Color, 7> RAINBOW_PALETTE{ sf::Color(255,  0,  0), sf::Colo
 									   sf::Color(0, 127, 127), sf::Color(0, 0, 225),
 									   sf::Color(180, 0, 255) };
 
-CircleSet::CircleSet(unsigned int numCircles, float minRad, float maxRad, const sf::Vector2f& dims) :
+const std::array<sf::Color, 7> GABBY_PALETTE{ sf::Color(81,51,104),
+											  sf::Color(81,51,104),
+											  sf::Color(106,102,163),
+											  sf::Color(132,169,192),
+											  sf::Color(179,203,185),
+											  sf::Color(234,229,196),
+											  sf::Color(234,229,196) };
+
+
+CircleSet::CircleSet(unsigned int numCircles, float minRad, float maxRad, const sf::Vector2f& dims, uint8_t paletteToggle) :
 	numCircles(numCircles),
 	dims(dims),
-	paletteToggle(1),
+	paletteToggle(paletteToggle),
 	minRad(minRad),
 	maxRad(maxRad)
 {
@@ -48,7 +57,7 @@ void CircleSet::createCircles()
 	for (int i = 0; i < numCircles; ++i)
 	{
 		shapes.push_back(sf::CircleShape(x * x));		
-		shapes[i].setFillColor(palettes[0][i]);
+		shapes[i].setFillColor(palettes[paletteToggle - 1][i]);
 		shapes[i].setPosition({ (float)(std::rand() % (int)dims.x), (float)(std::rand() % (int)dims.y) });
 		velocity.push_back({ 0.f, 0.f });
 		x -= dx;
@@ -76,6 +85,7 @@ void CircleSet::createPalettes()
 		sf::Color primaryCol = PRIMARY_PALETTE.back();
 		sf::Color greyCol =       GREY_PALETTE.back();
 		sf::Color rainbowCol = RAINBOW_PALETTE.back();
+		sf::Color gabCol = GABBY_PALETTE.back();
 
 		
 		if (integral < HEAT_PALETTE.size() - 1)
@@ -84,6 +94,7 @@ void CircleSet::createPalettes()
 			primaryCol = lerpColor(PRIMARY_PALETTE[integral], PRIMARY_PALETTE[integral + 1], t);
 			greyCol    = lerpColor(GREY_PALETTE[integral], GREY_PALETTE[integral + 1], t);
 			rainbowCol = lerpColor(RAINBOW_PALETTE[integral], RAINBOW_PALETTE[integral + 1], t);
+			gabCol = lerpColor(GABBY_PALETTE[integral], GABBY_PALETTE[integral + 1], t);
 		}
 		else
 		{
@@ -91,6 +102,7 @@ void CircleSet::createPalettes()
 			primaryCol = lerpColor(PRIMARY_PALETTE[integral], primaryCol, t);
 			greyCol = lerpColor(GREY_PALETTE[integral], greyCol, t);
 			rainbowCol = lerpColor(RAINBOW_PALETTE[integral], rainbowCol, t);
+			gabCol = lerpColor(GABBY_PALETTE[integral], gabCol, t);
 
 		}
 
@@ -98,6 +110,7 @@ void CircleSet::createPalettes()
 		palettes[1].push_back(primaryCol);
 		palettes[2].push_back(greyCol);
 		palettes[3].push_back(rainbowCol);
+		palettes[4].push_back(gabCol);
 
 		x += dx;
 	}
@@ -162,7 +175,7 @@ void CircleSet::togglePalette()
 
 void CircleSet::applyVelocity()
 {
-	for (int i = 0; i < shapes.size(); ++i)
+	for (int i = 0; i < numCircles; ++i)
 	{
 		sf::Vector2f pos = shapes[i].getPosition();
 		if (isnan(pos.x) || isnan(pos.y))
@@ -176,5 +189,16 @@ void CircleSet::applyVelocity()
 
 		shapes[i].setPosition(pos + velocity[i]);
 		velocity[i] = { 0.f, 0.f };
+	}
+}
+
+void CircleSet::centerCircles()
+{
+	sf::Vector2f halfDims = dims / 2.f;
+
+	for (auto &shape : shapes)
+	{
+		float rad = shape.getRadius();
+		shape.setPosition({halfDims.x - rad, halfDims.y - rad});
 	}
 }

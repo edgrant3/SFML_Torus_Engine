@@ -10,10 +10,10 @@ TorusEngine::TorusEngine() :
 
 TorusEngine::TorusEngine(unsigned int numCircles) :
     dims{ sf::VideoMode::getDesktopMode().width,
-                 sf::VideoMode::getDesktopMode().height },
+          sf::VideoMode::getDesktopMode().height },
     drawHUD(true),
     numCircles(numCircles),
-    circles(numCircles, dims.y * 0.025f, dims.y * 0.2f, dims),
+    circles(numCircles, dims.y * 0.02f, dims.y * 0.2f, dims, 1),
     pauseCircles(false),
     pullMouse(false),
     pushMouse(false),
@@ -82,6 +82,9 @@ void TorusEngine::input()
             }
             if (event.key.code == sf::Keyboard::Space) {
                 pauseCircles = !pauseCircles;
+            }
+            if (event.key.code == sf::Keyboard::Enter) {
+                circles.centerCircles();
             }
             if (event.key.code == sf::Keyboard::Up) {
                 numCircles += 50;
@@ -182,7 +185,7 @@ void TorusEngine::magnetizeMouse(float dtSecs, float speed, bool pull)
 
         // Limit max speed when attracting circles (otherwise they glitch)
         if (pull) {
-            float maxPullSpeed = 0.75f;
+            float maxPullSpeed = 3000.f * dtSecs;
             magnitude = std::min(maxPullSpeed, magnitude);
             xadj = -xadj; yadj = -yadj;
         }
@@ -276,5 +279,5 @@ void TorusEngine::printPositions()
 
 void TorusEngine::regenerateCircles()
 {
-    circles = CircleSet(numCircles, dims.y * 0.025f, dims.y * 0.2f, dims);
+    circles = CircleSet(numCircles, dims.y * 0.025f, dims.y * 0.2f, dims, circles.paletteToggle);
 }
