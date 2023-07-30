@@ -3,6 +3,13 @@
 [![V1 Video](CircleFunThumbnail2.png)](https://youtu.be/A9BMXKJ9-pg)
 
 ## Usage
+
+### Install
+For now, this will be a simple manual process
+* Go to `Code` tab and download ZIP
+* extract files and navigate to `Release` directory
+* run `Circle Fun.exe`!
+
 ### Inputs
 * F: show/hide stats 
 * UP: increase circle count by 50
