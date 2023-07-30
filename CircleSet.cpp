@@ -81,28 +81,28 @@ void CircleSet::createPalettes()
 		float t = x - (float)integral;
 
 		// Color LERP
-		sf::Color heatCol =       HEAT_PALETTE.back();
+		sf::Color heatCol    = HEAT_PALETTE.back();
 		sf::Color primaryCol = PRIMARY_PALETTE.back();
-		sf::Color greyCol =       GREY_PALETTE.back();
+		sf::Color greyCol    = GREY_PALETTE.back();
 		sf::Color rainbowCol = RAINBOW_PALETTE.back();
-		sf::Color gabCol = GABBY_PALETTE.back();
+		sf::Color gabCol     = GABBY_PALETTE.back();
 
 		
 		if (integral < HEAT_PALETTE.size() - 1)
-		{
-			heatCol    = lerpColor(HEAT_PALETTE[integral], HEAT_PALETTE[integral + 1], t);
+		{ 
+			heatCol    = lerpColor(HEAT_PALETTE[integral],    HEAT_PALETTE[integral + 1],    t);
 			primaryCol = lerpColor(PRIMARY_PALETTE[integral], PRIMARY_PALETTE[integral + 1], t);
-			greyCol    = lerpColor(GREY_PALETTE[integral], GREY_PALETTE[integral + 1], t);
+			greyCol    = lerpColor(GREY_PALETTE[integral],    GREY_PALETTE[integral + 1],    t);
 			rainbowCol = lerpColor(RAINBOW_PALETTE[integral], RAINBOW_PALETTE[integral + 1], t);
-			gabCol = lerpColor(GABBY_PALETTE[integral], GABBY_PALETTE[integral + 1], t);
+			gabCol     = lerpColor(GABBY_PALETTE[integral],   GABBY_PALETTE[integral + 1],   t);
 		}
 		else
 		{
-			heatCol = lerpColor(HEAT_PALETTE[integral], heatCol, t);
+			heatCol    = lerpColor(HEAT_PALETTE[integral],    heatCol,    t);
 			primaryCol = lerpColor(PRIMARY_PALETTE[integral], primaryCol, t);
-			greyCol = lerpColor(GREY_PALETTE[integral], greyCol, t);
+			greyCol    = lerpColor(GREY_PALETTE[integral],    greyCol,    t);
 			rainbowCol = lerpColor(RAINBOW_PALETTE[integral], rainbowCol, t);
-			gabCol = lerpColor(GABBY_PALETTE[integral], gabCol, t);
+			gabCol     = lerpColor(GABBY_PALETTE[integral],   gabCol,     t);
 
 		}
 
@@ -118,10 +118,9 @@ void CircleSet::createPalettes()
 
 void CircleSet::generatePeriods(float maxTimeSecs)
 {
+	unsigned int denom = 1000;
 	for (int i = 0; i < numCircles; ++i)
 	{
-		unsigned int denom = 1000;
-
 		int randx = std::rand() % denom + denom / 50;
 		int randy = std::rand() % denom + denom / 50;
 
@@ -140,9 +139,6 @@ void CircleSet::periodicMovement(float dtSecs, float tSecs, float speed)
 	short int dir = 1;
 	for (int i = 0; i < numCircles; ++i)
 	{
-		//float xVel = dtSecs * speed * std::cos(period[i].x * tSecs);
-		//float yVel = dtSecs * speed * std::cos(period[i].y * tSecs);
-
 		float xVel = std::cos(period[i].x * tSecs);
 		float yVel = std::cos(period[i].y * tSecs);
 
@@ -178,10 +174,10 @@ void CircleSet::applyVelocity()
 	for (int i = 0; i < numCircles; ++i)
 	{
 		sf::Vector2f pos = shapes[i].getPosition();
-		if (isnan(pos.x) || isnan(pos.y))
-		{
-			pos = { 0.f, 0.f };
-		}
+		//if (isnan(pos.x) || isnan(pos.y))
+		//{
+		//	pos = { 0.f, 0.f };
+		//}
 		if (isnan(velocity[i].x) || isnan(velocity[i].y))
 		{
 			velocity[i] = { 0.f, 0.f };

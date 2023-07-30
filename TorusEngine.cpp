@@ -43,6 +43,7 @@ void TorusEngine::run()
     int fps = 0;
     float hudPeriod = 0.5f;
     float prevT = 0.f;
+    //circles.centerCircles();
     while (m_Window.isOpen())
     {
         dt = clock.restart();
@@ -121,7 +122,7 @@ void TorusEngine::input()
 
 void TorusEngine::update(float dtSecs, float tSecs)
 {
-    // Want circles to cross width of screen in 4s at max speed
+    // Want circles to cross width of screen in 5s at max speed
     float speed = dims.x / 5.f;
     if (pullMouse) { magnetizeMouse(dtSecs, speed, true);  }
     if (pushMouse) { magnetizeMouse(dtSecs, speed, false); }
