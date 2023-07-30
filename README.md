@@ -3,6 +3,7 @@
 [![V1 Video](CircleFunThumbnail2.png)](https://youtu.be/A9BMXKJ9-pg)
 
 ## Usage
+Only compatible with Windows!
 
 ### Install
 For now, this will be a simple manual process
