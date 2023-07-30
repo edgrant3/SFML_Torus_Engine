@@ -4,7 +4,8 @@
 
 ## Usage
 ### Inputs
-* UP : increase circle count by 50
+* F: show/hide stats 
+* UP: increase circle count by 50
 * DOWN: decrease circle count by 50
 * RIGHT: increase circle count by 1
 * LEFT: decrease cirlce count by 1
