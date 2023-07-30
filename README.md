@@ -12,13 +12,13 @@ For now, this will be a simple manual process
 * run `Circle Fun.exe`!
 
 ### Inputs
-* F: show/hide stats 
-* UP: increase circle count by 50
-* DOWN: decrease circle count by 50
-* RIGHT: increase circle count by 1
-* LEFT: decrease cirlce count by 1
-* SPACE: pause circles
-* ENTER: center all circles
-* LEFT MOUSE: repel circles around cursor
-* RIGHT MOUSE: attract circles to cursor
-* RIGHT MOUSE then LEFT MOUSE: cycle through color palettes
+* `F`: show/hide stats 
+* `UP`: increase circle count by 50
+* `DOWN`: decrease circle count by 50
+* `RIGHT`: increase circle count by 1
+* `LEFT`: decrease cirlce count by 1
+* `SPACE`: pause circles
+* `ENTER`: center all circles
+* `LEFT MOUSE`: repel circles around cursor
+* `RIGHT MOUSE`: attract circles to cursor
+* `RIGHT MOUSE` then `LEFT MOUSE`: cycle through color palettes
