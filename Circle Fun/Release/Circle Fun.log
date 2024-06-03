@@ -1,30 +1,10 @@
 ﻿  TorusEngine.cpp
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(13,42): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(12,42): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(28,47): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(28,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(158,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(180,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(274,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(176,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(198,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Circle Fun\TorusEngine.cpp(292,23): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  2 of 377 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  11 of 447 functions ( 2.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Circle Fun.vcxproj -> C:\Users\Allied Gaming\Visual Studio Stuff\Projects\Circle Fun\Release\Circle Fun.exe

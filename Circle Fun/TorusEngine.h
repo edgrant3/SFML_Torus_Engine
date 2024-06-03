@@ -17,6 +17,9 @@ private:
 	sf::Text m_hud;
 	bool drawHUD;
 
+	int32_t m_timeInterpIdx;
+	float m_timeInflation;
+
 	unsigned int numCircles;
 	//uint8_t numCircles;
 	CircleSet circles;

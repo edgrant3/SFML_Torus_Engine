@@ -2,16 +2,24 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+
+#include "smoothfuncs.h"
+
 const double pi = 3.14159265358979323846;
+
+const int timeInterpSize = 20;
+const std::vector<float> timeInterp = smoothstepArray(timeInterpSize);
 
 TorusEngine::TorusEngine() :
     TorusEngine(50)
 {}
 
 TorusEngine::TorusEngine(unsigned int numCircles) :
-    dims{ sf::VideoMode::getDesktopMode().width,
-          sf::VideoMode::getDesktopMode().height },
+    dims{ static_cast<float>(sf::VideoMode::getDesktopMode().width),
+          static_cast<float>(sf::VideoMode::getDesktopMode().height) },
     drawHUD(true),
+    m_timeInterpIdx(timeInterpSize - 1),
+    m_timeInflation(timeInterp[timeInterpSize - 1]),
     numCircles(numCircles),
     circles(numCircles, dims.y * 0.02f, dims.y * 0.2f, dims, 1),
     pauseCircles(false),
@@ -25,9 +33,10 @@ TorusEngine::TorusEngine(unsigned int numCircles) :
     m_hud.setCharacterSize(20);
     m_hud.setFillColor(sf::Color::White);
 
-    m_Window.create(sf::VideoMode(dims.x, dims.y),
-        "Circle Fun - Evan Grant SFML Project 0",
-        sf::Style::Fullscreen);
+    m_Window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, 
+                                  sf::VideoMode::getDesktopMode().height),
+                    "Circle Fun - Evan Grant SFML Project 0",
+                    sf::Style::Fullscreen);
 
     sf::Cursor cursor;
     m_Window.setMouseCursor(cursor);
@@ -48,6 +57,12 @@ void TorusEngine::run()
     {
         dt = clock.restart();
         float dtSecs = dt.asSeconds();
+
+        m_timeInterpIdx = std::max(std::min(m_timeInterpIdx, timeInterpSize - 1), -(timeInterpSize - 1));
+        m_timeInflation = timeInterp[std::abs(m_timeInterpIdx)];
+        m_timeInflation = m_timeInterpIdx < 0 ? (-m_timeInflation) : (m_timeInflation);
+        dtSecs *= m_timeInflation;
+
         t += dtSecs;
 
         fps = (int)(1.f / dtSecs);
@@ -97,12 +112,14 @@ void TorusEngine::input()
                 regenerateCircles();
             }
             if (event.key.code == sf::Keyboard::Right) {
-                numCircles += 1;
-                regenerateCircles();
+               // m_timeInflation = std::min(10.0f, m_timeInflation + 0.2f);
+                m_timeInterpIdx += 1;
             }
             if (event.key.code == sf::Keyboard::Left) {
-                numCircles = numCircles >= 1 ? numCircles - 1 : 0;
-                regenerateCircles();
+                //numCircles = numCircles >= 1 ? numCircles - 1 : 0;
+                //regenerateCircles();
+                //m_timeInflation = std::max(-10.0f, m_timeInflation - 0.2f);
+                m_timeInterpIdx -= 1;
             }
         }
         if (event.type == sf::Event::MouseButtonPressed) {
@@ -151,6 +168,7 @@ void TorusEngine::draw()
 void TorusEngine::magnetizeMouse(float dtSecs, float speed, bool pull)
 {
     sf::Vector2i mousePos = sf::Mouse::getPosition(m_Window);
+    // TODO: pre-compute wrapped mouse positions
 
     float dist2;
     sf::Vector2f dir;

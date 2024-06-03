@@ -32,5 +32,8 @@
     <ClInclude Include="CircleSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="smoothfuncs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

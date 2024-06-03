@@ -1,5 +1,6 @@
 #include "TorusEngine.h"
 #include <Windows.h>
+#include <iostream>
 
 // Windows application entry point requires this Main format 
 // (required to remove the Debug Console from showing via 
